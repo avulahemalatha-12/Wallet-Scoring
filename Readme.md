@@ -61,7 +61,7 @@ Final score is capped between **0 and 1000**.
 3. Outputs:
 
    * `wallet_scores.csv`: Wallet address + score
-   * `Bar chart.png`: Bar chart of score ranges
+   * `score_distribution.png`: score_distribution of score ranges
 
 ---
 
@@ -81,7 +81,7 @@ Final score is capped between **0 and 1000**.
 
 * `wallet_scoring_model.ipynb`: Full pipeline
 * `wallet_scores.csv`: Output scores
-* `Bar chart.png`: Visualization
+* `score_distribution.png`: Visualization
 * `Readme.md`: Project overview
 * `Analysis.md`: Score insights & behaviors
 
