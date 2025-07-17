@@ -64,13 +64,3 @@ These wallets indicate:
 * **High score users** tend to interact with 3–7 asset types and have spaced-out transactions
 
 ---
-
-## 📎 Suggestions
-
-* Integrate additional on-chain metadata (e.g., ENS, age of wallet)
-* Include clustering to detect behavior-based wallet segments
-* Extend scoring to other protocols (Compound, MakerDAO)
-
----
-
-For any questions or improvements, please refer to the notebook or open an issue on the GitHub repo.
