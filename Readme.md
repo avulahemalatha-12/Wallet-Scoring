@@ -57,11 +57,11 @@ Final score is capped between **0 and 1000**.
 ## 🛠️ How to Run
 
 1. Upload `user-wallet-transactions.json` in Colab
-2. Run the notebook `aave_credit_scoring.ipynb`
+2. Run the notebook `wallet_scoring_model.ipynb`
 3. Outputs:
 
    * `wallet_scores.csv`: Wallet address + score
-   * `score_distribution.png`: Bar chart of score ranges
+   * `Bar chart.png`: Bar chart of score ranges
 
 ---
 
@@ -79,11 +79,11 @@ Final score is capped between **0 and 1000**.
 
 ## 📁 Files
 
-* `aave_credit_scoring.ipynb`: Full pipeline
+* `wallet_scoring_model.ipynb`: Full pipeline
 * `wallet_scores.csv`: Output scores
-* `score_distribution.png`: Visualization
-* `README.md`: Project overview
-* `analysis.md`: Score insights & behaviors
+* `Bar chart.png`: Visualization
+* `Readme.md`: Project overview
+* `Analysis.md`: Score insights & behaviors
 
 ---
 
