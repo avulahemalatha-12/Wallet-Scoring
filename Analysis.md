@@ -1,4 +1,4 @@
-# Aave V2 Credit Score Analysis
+# Credit Score Analysis
 
 This analysis provides insights into the distribution and behavior of wallets based on their credit scores computed from Aave V2 transaction data.
 
