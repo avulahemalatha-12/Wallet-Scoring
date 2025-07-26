@@ -22,7 +22,7 @@ Each record contains wallet activity, asset type, amount, price, and timestamps.
 
 ## ⚙️ Features Engineered
 
-For each wallet, we compute:
+For each wallet, I compute:
 
 | Feature                         | Description                                  |
 | ------------------------------- | -------------------------------------------- |
@@ -93,6 +93,44 @@ Final score is capped between **0 and 1000**.
 pandas
 matplotlib
 ```
+# Wallet Risk Scoring
+
+## Data Collection Method
+
+I collected the transaction histories for each provided wallet address using The Graph Protocol’s Compound V2 and V3 subgraphs. For each address, I retrieved events related to borrowing, repayment, liquidation, and overall protocol activity. Data was fetched via Python scripts using GraphQL API requests to ensure completeness and scalability.
+
+## Feature Selection Rationale
+
+The following features were engineered to accurately reflect DeFi lending/borrowing risk:
+
+- **Number of Liquidations:** Direct measure of financial distress or liquidation risk.
+- **Late Repayment Ratio:** Assesses overall payment reliability.
+- **Average Collateral Utilization:** Proxies leverage and risk-taking behavior.
+- **Borrow-to-Repay Ratio:** Indicates potential negligence or overextension.
+- **Largest Single Borrow:** Highlights outsized risk events.
+- **Wallet Activity Duration:** Longer, consistent use signals a safer, more experienced user.
+
+These features are widely considered strong predictors of wallet risk in DeFi lending.
+
+## Scoring Method
+
+All features were normalized using Min-Max scaling to have values between 0 and 1, with some features (like activity duration) inverted so that higher values mean higher risk. The final risk score was computed as a weighted sum of these normalized features, scaled to a range from 0 to 1000.
+
+**Formula:**
+
+$$
+\text{Risk Score} = 1000 \times (w_1 \times f_1 + w_2 \times f_2 + \ldots + w_n \times f_n)
+$$
+
+Weights reflect the relative importance of each risk indicator; for example, liquidations carry the highest weight since they represent immediate financial failure.
+
+## Justification of Risk Indicators
+
+- **Liquidations** are the strongest indicator of risk, representing critical failures in risk management.
+- **Repayment behavior** (including late repayments) shows a user’s reliability and discipline.
+- **Collateralization habits** and **borrow-to-repay ratio** reveal potential overexposure or risk-taking.
+- **Largest single borrow** reflects possible concentration of risk in one large position.
+- **Sustained wallet activity duration** indicates experience and typically correlates with lower risk.
 
 ---
 
