@@ -81,3 +81,19 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
+import pandas as pd
+
+df = pd.read_csv("wallet_scores.csv")
+
+df = df.rename(columns={
+    "userWallet": "wallet_id",
+    "credit_score": "score"
+})
+
+df = df.drop_duplicates("wallet_id").dropna(subset=["wallet_id", "score"])
+df["score"] = df["score"].astype(int)
+
+df[["wallet_id", "score"]].to_csv("wallet_risk_scores.csv", index=False)
+
+print("Saved wallet_risk_scores.csv for submission.")
+print(df.head())
